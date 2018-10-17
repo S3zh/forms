@@ -1,0 +1,11 @@
+fa:hover {
+  color: gold;
+}
+
+.active {
+  color: gold;
+}
+
+.star-box {
+  display: flex;
+}

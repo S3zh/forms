@@ -1,0 +1,8 @@
+<div class="star-box">
+  <div
+    *ngFor="let star of stars"
+    (click)="setRating(star)"
+    [ngClass]="currentRating >= star ? 'active': ''">
+    <fa name="star" size="2x"></fa>
+  </div>
+</div>

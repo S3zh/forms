@@ -1,0 +1,23 @@
+label {
+  margin-right: 5px;
+}
+
+.err-message {
+  color: red;
+}
+
+#message {
+  resize: none;
+}
+
+.ng-invalid {
+  border-color: red;
+}
+
+.form-example {
+  width: 400px;
+}
+
+.example-full-width {
+  width: 100%;
+}
