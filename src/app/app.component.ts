@@ -8,49 +8,38 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 })
 export class AppComponent implements OnInit {
 
-
-  emailControl = new FormControl(
-    '',
-    [
-      Validators.email,
-      Validators.required
-    ]);
-  nameControl = new FormControl(
-    '',
-    [
-      Validators.required
-    ]);
-  textControl = new FormControl(
-    '',
-    [
-      Validators.maxLength(150),
-      Validators.required
-    ]);
-  checkControl = new FormControl();
-
-  phoneArrayControl = new FormArray([
-    new FormControl('',
-      [
-        this.hasPlusCheck,
-        Validators.pattern(/^((8|\+38)-?)?(\(?044\)?)?-?\d{3}-?\d{2}-?\d{2}$/g)
-
-      ])
-  ]);
-
-  ratingControl = new FormControl('', [Validators.required]);
-
-  feedbackForm: FormGroup = this.builder.group({
-    email: this.emailControl,
-    name: this.nameControl,
-    phone: this.phoneArrayControl,
-    check: this.checkControl,
-    text: this.textControl,
-    rating: this.ratingControl
-  });
+  emailControl: FormControl;
+  nameControl: FormControl;
+  textControl: FormControl;
+  checkControl: FormControl;
+  ratingControl: FormControl;
+  phoneArrayControl: FormArray;
+  feedbackForm: FormGroup;
 
   constructor(private builder: FormBuilder) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.emailControl = new FormControl('', [Validators.email, Validators.required]);
+    this.nameControl = new FormControl('', [Validators.required]);
+    this.textControl = new FormControl('', [Validators.maxLength(150), Validators.required]);
+    this.checkControl = new FormControl();
+    this.ratingControl = new FormControl('', [Validators.required]);
+    this.phoneArrayControl = new FormArray([
+      new FormControl('',
+        [
+          this.hasPlusCheck,
+          Validators.pattern(/^((8|\+38)-?)?(\(?044\)?)?-?\d{3}-?\d{2}-?\d{2}$/g)
+        ])
+    ]);
+    this.feedbackForm = this.builder.group({
+      email: this.emailControl,
+      name: this.nameControl,
+      phone: this.phoneArrayControl,
+      check: this.checkControl,
+      text: this.textControl,
+      rating: this.ratingControl
+    });
+  }
 
   submitFeedback() {
     console.log(this.feedbackForm.value);

@@ -1,0 +1,6 @@
+<mat-form-field>
+  <input #input matInput type="text" [placeholder]="name" [ngModel]="currentValue" (keyup)="setValue(input.value)">
+  <button mat-button [disabled]="!currentValue" matSuffix (click)="clearValue()">
+    Clear
+  </button>
+</mat-form-field>

@@ -8,11 +8,13 @@ import {MatInputModule} from '@angular/material/input';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule, MatIconModule} from '@angular/material';
+import { CustomInputComponent } from './custom-input/custom-input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomControlComponent
+    CustomControlComponent,
+    CustomInputComponent
   ],
   imports: [
     BrowserModule,
